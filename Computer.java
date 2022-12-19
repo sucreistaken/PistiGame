@@ -7,39 +7,45 @@ public class Computer {
     Game lastcardp1 = new Game();
     String joker[] = {"Joker"};
     Random rd = new Random();
-   public static String lastcardcmp ;
+    public static String lastcardcmp ;
+    Game choosecard = new Game();
+    Game tableon = new Game();
+
 
 
     public void CompChoose() {
-        int a = rd.nextInt(player2.length);
-        System.out.println("The computer has been choosed" + player2[a]);
-        lastcardcmp = player2[a];
+        int a = rd.nextInt(player2.length-1);
+        //lastcardcmp = player2[a];
+        for (int u = 0; u < player2.length-1; u++) {
+            if (player2[u] != null){
 
 
-            for (int u = 0; u < player2.length; u++) {
-                if (player2[u] = lastcardp1.lastcard) {
+                if (player2[u].equals(lastcardp1.lastcard)) {
                     System.out.println("pistii");
                     if (u == 0) {
                         player2[0] = player2[1];
                         player2[1] = player2[2];
                         player2[2] = player2[3];
                         player2[3] = null;
+                        tableon.decksonthetable=0;
                     } else if (u == 1) {
                         player2[0] = player2[0];
                         player2[1] = player2[2];
                         player2[2] = player2[3];
                         player2[3] = null;
-
+                        tableon.decksonthetable=0;
                     } else if (u == 2) {
                         player2[0] = player2[0];
                         player2[1] = player2[1];
                         player2[2] = player2[3];
                         player2[3] = null;
+                        tableon.decksonthetable=0;
                     } else
-                    player2[0] = player2[0];
+                        player2[0] = player2[0];
                     player2[1] = player2[1];
                     player2[2] = player2[2];
                     player2[3] = null;
+                    tableon.decksonthetable=0;
 
                 } else if (player2[u].charAt(0) == joker[0].charAt(0)) {
                     if (u == 0) {
@@ -47,106 +53,67 @@ public class Computer {
                         player2[1] = player2[2];
                         player2[2] = player2[3];
                         player2[3] = null;
+                        tableon.decksonthetable=0;
+
                     } else if (u == 1) {
                         player2[0] = player2[0];
                         player2[1] = player2[2];
                         player2[2] = player2[3];
                         player2[3] = null;
+                        tableon.decksonthetable=0;
 
                     } else if (u == 2) {
                         player2[0] = player2[0];
                         player2[1] = player2[1];
                         player2[2] = player2[3];
                         player2[3] = null;
+                        tableon.decksonthetable=0;
                     } else
                         player2[0] = player2[0];
                     player2[1] = player2[1];
                     player2[2] = player2[2];
                     player2[3] = null;
+                    tableon.decksonthetable=0;
 
 
                 }
-            }
+                else
+                if ((a == 0)) { //masadaki kart değişecek ve başka kart var mı diye bakılacak bir metod daha ekliceksin o şekilde
+                    player2[0] = player2[1];
+                    player2[1] = player2[2];
+                    player2[2] = player2[3];
+                    player2[3] = null;
+                    if(player2[0] == null){
+                        deaalcard1.DealCards();
+                    }
+                    tableon.decksonthetable++;
+                }
+                else if ((a == 1)) {
+                    player2[0] = player2[0];
+                    player2[1] = player2[1];
+                    player2[2] = player2[3];
+                    player2[3] = null;
+                    tableon.decksonthetable++;
+                }
 
-            if ((a == 0) && player2[a] == lastcardp1.lastcard) { //masadaki kart değişecek ve başka kart var mı diye bakılacak bir metod daha ekliceksin o şekilde
-                System.out.println("pişti");
-                player2[0] = player2[1];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
-
-            } else if ((a == 0) && player2[a].charAt(0) = joker[0].charAt(0)) {
-                System.out.println("Player 2 got the point with J");
-                player2[0] = player2[1];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
-            } else if (a == 0) {
-                player2[0] = player2[1];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
-            }
-
-
-            if ((a == 1) && player2[a] == lastcardp1.lastcard) {
-                System.out.println("pişti");
-                player2[0] = player2[0];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
-            } else if ((a == 1) && player2[a].charAt(0) = joker[0].charAt(0)) {
-                System.out.println("Player 2 got the point with J");
-                player2[0] = player2[0];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
-            } else if (a == 1) {
-                player2[0] = player2[0];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
-            }
-
-
-            if ((a == 2) && player2[a] == lastcardp1.lastcard) {
-                System.out.println("pişti");
-                player2[0] = player2[0];
-                player2[1] = player2[1];
-                player2[2] = player2[3];
-                player2[3] = null;
-            } else if ((a == 2) && player2[a].charAt(0) = joker[0].charAt(0)) {
-                System.out.println("Player 2 got the point with J");
-                player2[0] = player2[0];
-                player2[1] = player2[1];
-                player2[2] = player2[3];
-                player2[3] = null;
-            } else if (a == 2) {
-                player2[0] = player2[0];
-                player2[1] = player2[1];
-                player2[2] = player2[3];
-                player2[3] = null;
-            }
-            if ((a == 3) && player2[a] == lastcardp1.lastcard) {
-                System.out.println("pişti");
-                player2[0] = player2[0];
-                player2[1] = player2[1];
-                player2[2] = player2[2];
-                player2[3] = null;
-            } else if ((a == 3) && player2[a].charAt(0) = joker[0].charAt(0)) {
-                System.out.println("Player 2 got the point with J");
-                player2[0] = player2[0];
-                player2[1] = player2[1];
-                player2[2] = player2[2];
-                player2[3] = null;
-            } else if (a == 3) {
-                player2[0] = player2[0];
-                player2[1] = player2[1];
-                player2[2] = player2[2];
-                player2[3] = null;
+                else if ((a == 2)) {
+                    player2[0] = player2[0];
+                    player2[1] = player2[1];
+                    player2[2] = player2[3];
+                    player2[3] = null;
+                    tableon.decksonthetable++;
+                }
+                if ((a == 3)) {
+                    player2[0] = player2[0];
+                    player2[1] = player2[1];
+                    player2[2] = player2[2];
+                    player2[3] = null;
+                    tableon.decksonthetable++;
+                }
             }
         }
     }
 }
+
 
 
