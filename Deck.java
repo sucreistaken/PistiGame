@@ -5,15 +5,10 @@ public class Deck {
     public static  String[] player1 = new String[4];
     public static String[] player2 = new String[4];
     public static String[] board = new String[4];
-    public static String[] tableonboard = new String[52];
-    String sonkart;
+    public  static String lastcard;
 
-    public void PrinDeste(){
-        for (int u =0 ; u<52 ; u++){
-            System.out.println(deck[u]);
-        }
 
-    }
+
     Deck() {
 
 
@@ -43,7 +38,7 @@ public class Deck {
     public   void CuttheDeck(){
 
         Random random = new Random();
-        int k = random.nextInt(52);
+        int k = random.nextInt(52); // 0dan kesebilir buraya bak
         int temp = k;
         System.out.println(k);
         System.out.println("*********************************");
@@ -83,6 +78,7 @@ public class Deck {
         }
         System.out.println("masadaki kartlar" + board[j-1]);
         counter +=4;
+        lastcard=board[j-1];
     }
 
     public void DealCards() {
