@@ -1,5 +1,4 @@
-import javax.sound.midi.Soundbank;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 import java.util.Random;
 
 public class Computer {
@@ -10,22 +9,26 @@ public class Computer {
     public static player1play choosecard = new player1play();
     public static player1play tableon = new player1play();
     public static String lastcardcomp;
+
+
+    // elindeiki tane joker varsa o durumu kontrol et bir daha joker atabiliyor
     public void CompChoose() {
         if ((player2[0].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1) {
+            Deck.lastcard = player2[1];
             System.out.print("computer choosedddddd" + player2[0]);
             System.out.println("************************");
-            System.out.println("computer got the point");
+            System.out.println("Computer got the point");
             System.out.println("***********************");
             player2[0] = player2[1];
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
             tableon.decksonthetable = 0;
-            Deck.lastcard = player2[0];
             if (player2[0] == null){
                 choosecard.ChooseCard();
             }
         }  else if (player2[1] != null &&(player2[1].charAt(0) == Deck.lastcard.charAt(0))&& tableon.decksonthetable == 1){
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[1]);
             System.out.println("computer got the point");
             player2[1] = player2[2];
@@ -35,6 +38,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if (player2[2] != null &&(player2[2].charAt(0) == Deck.lastcard.charAt(0))&& tableon.decksonthetable == 1){
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[2]);
             System.out.println("computer got the point");
             player2[2] = player2[3];
@@ -43,6 +47,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if( player2[3] != null &&(player2[3].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1){
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[3]);
             System.out.println("computer got the point");
             player2[3] = null;
@@ -50,6 +55,7 @@ public class Computer {
             choosecard.ChooseCard();
         } //burdan sonrası farklı
         else if ((player2[0].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1) {
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[0]);
             System.out.println("got the point but less");
             player2[0] = player2[1];
@@ -58,10 +64,14 @@ public class Computer {
             player2[3] = null;
             tableon.decksonthetable = 0;
             if (player2[0] == null){
+                System.out.println("*****************");
+                System.out.println("Cards are dealing");
+                System.out.println("*****************");
                 deaalcard1.DealCards();
             }
             choosecard.ChooseCard();
         }  else if (player2[1] != null &&(player2[1].charAt(0) == Deck.lastcard.charAt(0) && tableon.decksonthetable > 1)){
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[1]);
             System.out.println("got the point but less");
             player2[1] = player2[2];
@@ -71,6 +81,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if (player2[2] != null &&(player2[2].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1){
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[2]);
             System.out.println("got the point but less");
             player2[2] = player2[3];
@@ -79,6 +90,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if( player2[3] != null &&(player2[3].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1){
+            Deck.lastcard = player2[1];
             System.out.println("computer choosedddddd" + player2[3]);
             System.out.println("got the point but less");
             player2[3] = null;
@@ -86,6 +98,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if (player2[0].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+            Deck.lastcard = player2[1];
             System.out.println("jokerle alındı");
             player2[0] = player2[1];
             player2[1] = player2[2];
@@ -98,6 +111,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if (player2[1] != null && player2[1].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+            Deck.lastcard = player2[1];
             System.out.println("jokerle alındı");
             player2[1] = player2[2];
             player2[2] = player2[3];
@@ -106,6 +120,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if (player2[2] != null && player2[2].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+            Deck.lastcard = player2[1];
             System.out.println("jokerle alındı");
             player2[2] = player2[3];
             player2[3] = null;
@@ -113,6 +128,7 @@ public class Computer {
             choosecard.ChooseCard();
         }
         else if(player2[3] != null && player2[3].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+            Deck.lastcard = player2[1];
             System.out.println("jokerle alındı");
             player2[3] = null;
             tableon.decksonthetable = 0;
@@ -133,6 +149,9 @@ public class Computer {
                 player2[3] = null;
                 tableon.decksonthetable++;
                 if(player2[0] == null){
+                    System.out.println("*****************");
+                    System.out.println("Cards are dealing");
+                    System.out.println("*****************");
                     deaalcard1.DealCards();
                 }
                 choosecard.ChooseCard();
