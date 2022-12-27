@@ -21,10 +21,7 @@ public class Computer {
             PointsSystem.pointscmp += 10;
             System.out.println("COMPUTER CHOOSED" + player2[0]);
             System.out.println("COMPUTER GOT THE POİNT");
-            player2[0] = player2[1];
-            player2[1] = player2[2];
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands();
             PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
             if (player2[0] == null) {
@@ -37,9 +34,7 @@ public class Computer {
             System.out.println("COMPUTER CHOOSED" + player2[1]);
             System.out.println("COMPUTER GOT THE POİNT");
             PointsSystem.pointscmp += 10;
-            player2[1] = player2[2];
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands2();
             PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
@@ -48,8 +43,7 @@ public class Computer {
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("COMPUTER CHOOSED" + player2[2]);
             System.out.println("COMPUTER GOT THE POİNT");
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands3();
             PointsSystem.pointscmp += 10;
             PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
@@ -61,7 +55,6 @@ public class Computer {
             System.out.println("COMPUTER GOT THE POİNT");
             PointsSystem.pointscmp += 10;
             player2[3] = null;
-            PointsSystem.pointscmp += 10;
             PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
@@ -71,11 +64,7 @@ public class Computer {
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[0]);
             System.out.println("COMPUTER GOT THE CARDS");
-            player2[0] = player2[1];
-            player2[1] = player2[2];
-            player2[2] = player2[3];
-            player2[3] = null;
-            PointsSystem.pointscmp += 10;
+            Playerhands.player2Hands();
             PointsSystem.pointscmp += tableon.decksonthetable;
             PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
@@ -88,9 +77,7 @@ public class Computer {
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[1]);
             System.out.println("COMPUTER GOT THE CARDS");
-            player2[1] = player2[2];
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands2();
             PointsSystem.Collectcardsscmp();
             PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
@@ -100,8 +87,7 @@ public class Computer {
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[2]);
             System.out.println("COMPUTER GOT THE CARDS");
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands3();
             PointsSystem.Collectcardsscmp();
             PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
@@ -120,10 +106,7 @@ public class Computer {
             Deck.lastcard = player2[1];
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("Computer COLLECTED WİTH JOKER");
-            player2[0] = player2[1];
-            player2[1] = player2[2];
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands();
             PointsSystem.Collectcardsscmp();
             PointsSystem.pointscmp += tableon.decksonthetable;
             if (player2[0] == null) {
@@ -135,9 +118,7 @@ public class Computer {
             Deck.lastcard = player2[1];
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("Computer COLLECTED WİTH JOKER");
-            player2[1] = player2[2];
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands2();
             PointsSystem.Collectcardsscmp();
             PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
@@ -146,8 +127,7 @@ public class Computer {
             Deck.lastcard = player2[1];
             PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("Computer COLLECTED WİTH JOKER");
-            player2[2] = player2[3];
-            player2[3] = null;
+            Playerhands.player2Hands3();
             PointsSystem.Collectcardsscmp();
             PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
@@ -170,10 +150,7 @@ public class Computer {
             lastcardcomp = player2[a];
             if ((a == 0)) { //masadaki kart değişecek ve başka kart var mı diye bakılacak bir metod daha ekliceksin o şekilde
                 Deck.lastcard = player2[0];
-                player2[0] = player2[1];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
+                Playerhands.player2Hands();
                 PointsSystem.Calculatepointscmp();
                 tableon.decksonthetable++;
                 if (player2[0] == null) {
@@ -184,15 +161,12 @@ public class Computer {
                 }
             } else if ((a == 1)) {
                 Deck.lastcard = player2[1];
-                player2[1] = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
+                Playerhands.player2Hands2();
                 tableon.decksonthetable++;
                 choosecard.ChooseCard();
             } else if ((a == 2)) {
                 Deck.lastcard = player2[2];
-                player2[2] = player2[3];
-                player2[3] = null;
+                Playerhands.player2Hands3();
                 tableon.decksonthetable++;
                 choosecard.ChooseCard();
             } else if ((a == 3)) {
