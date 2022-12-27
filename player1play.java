@@ -1,239 +1,229 @@
+import javax.xml.transform.sax.SAXSource;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-public class player1play {
-    public static   String[]player1 = Deck.player1;
-    // Deck dealcard = new Deck();
-    public static String [] joker = {"Joker"};
-    Scanner scanner = new Scanner(System.in);
-    public static int decksonthetable =1;
-    public static  Computer complay = new Computer();
-    int x;
-    public  void ChooseCard() {
-        System.out.println("Ortaya kart atın");
-        x = scanner.nextInt();
-        if (x == 1 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable==1) {
-            Deck.lastcard = player1[0];
-            System.out.println("Table on the board" +  "*****" + Deck.lastcard + "*****" );
-            System.out.println("piştiii");
-            player1[0] = player1[1];
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else if (x == 1 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable>1) {
-            Deck.lastcard = player1[0];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            System.out.println("piştiii değil ama puan aldın");
-            player1[0] = player1[1];
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable=0;
-            complay.CompChoose();
-        }
-        else if((x == 1 && player1[x - 1].charAt(0) == joker[0].charAt(0))){
-            System.out.println("Joker got the points");
-            Deck.lastcard = player1[0];
-            player1[0] = player1[1];
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else if (x == 1 && player1[x - 1].charAt(0) != Deck.lastcard.charAt(0) && decksonthetable >= 0) {
-            Deck.lastcard = player1[0];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[0] = player1[1];
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable++;
-            complay.CompChoose();
-        }
-        if (x == 2 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable==1) {
-            Deck.lastcard = player1[1];
-            System.out.println("piştii 33");
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable =0;
 
-            complay.CompChoose();
-        }else if (x == 2 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable>1) {
-            Deck.lastcard = player1[1];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            System.out.println("piştiii değil ama puan aldın");
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u+1 + ".= " +player1[u]);
+public class player1play {
+    public static String[] player1 = Deck.player1;
+    // Deck dealcard = new Deck();
+    public static String[] joker = {"Joker"};
+    Scanner scanner = new Scanner(System.in);
+    public static int decksonthetable = 1;
+    public static Computer complay = new Computer();
+    int x;
+
+    public void ChooseCard() {
+        while (true){
+            System.out.println("Ortaya kart atın");
+            try {
+                x = scanner.nextInt();
+                if(x>4){
+                    System.out.println("Please Enter a valid number");
+                    x= scanner.nextInt();
+                    break;
                 }
+                break;
+            }catch (Exception e){
+                scanner.nextLine();
             }
-            decksonthetable=0;
-            complay.CompChoose();
         }
-        else if((x == 2 && player1[x - 1].charAt(0) == joker[0].charAt(0))){
-            Deck.lastcard = player1[1];
-            System.out.println("Joker got the points");
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
+
+        try {
+            if (x == 1 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable == 1) {
+                Deck.lastcard = player1[0];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                PointsSystem.pointsp1 += 10;
+                System.out.println("PİŞTİİİİİ");
+                player1[0] = player1[1];
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 1 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable > 1) {
+                Deck.lastcard = player1[0];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("YOU GOT THE CARDS");
+                player1[0] = player1[1];
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if ((x == 1 && player1[x - 1].charAt(0) == joker[0].charAt(0))) {
+                Deck.lastcard = player1[0];
+                System.out.println("YOU GOT THE CARDS WİTH JOKER");
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                player1[0] = player1[1];
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 1) {
+                Deck.lastcard = player1[0];
+                System.out.println("Table on the board" + "*****" + Deck.lastcard + "*****");
+                player1[0] = player1[1];
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                decksonthetable++;
+                complay.CompChoose();
             }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else if (x == 2 && player1[x - 1].charAt(0) != Deck.lastcard.charAt(0) && decksonthetable >= 0) {
-            Deck.lastcard = player1[1];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
+            if (x == 2 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable == 1) {
+                Deck.lastcard = player1[1];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("PİŞTİİİİİ");
+                PointsSystem.pointsp1 += 10;
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 2 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable > 1) {
+                Deck.lastcard = player1[1];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("YOU GOT THE CARDS WİTH JOKER");
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if ((x == 2 && player1[x - 1].charAt(0) == joker[0].charAt(0))) {
+                Deck.lastcard = player1[1];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("You got the Cards with joker");
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 2) {
+                Deck.lastcard = player1[1];
+                System.out.println("Table on the board" + "*****" + Deck.lastcard + "*****");
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                decksonthetable++;
+                complay.CompChoose();
             }
-            System.out.println("Table on the board" + Deck.lastcard);
-            decksonthetable++;
-            complay.CompChoose();
-        }
-        if (x == 3&& Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable ==1) {
-            Deck.lastcard = player1[2];
-            System.out.println("piştii 33");
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
+            if (x == 3 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable == 1) {
+                Deck.lastcard = player1[2];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("PİŞTİİİİİ");
+                PointsSystem.pointsp1 += 10;
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 3 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable > 1) {
+                Deck.lastcard = player1[2];
+                System.out.println("YOU GOT THE CARDS");
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if ((x == 3 && player1[x - 1].charAt(0) == joker[0].charAt(0))) {
+                System.out.println("Joker got the points");
+                Deck.lastcard = player1[2];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                player1[0] = player1[1];
+                player1[1] = player1[2];
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 3) {
+                Deck.lastcard = player1[2];
+                System.out.println("Table on the board" + "*****" + Deck.lastcard + "*****");
+                player1[2] = player1[3];
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                decksonthetable++;
+                complay.CompChoose();
             }
-            decksonthetable =0;
-            complay.CompChoose();
-        }else if (x == 3 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable>1) {
-            System.out.println("you got the point aa");
-            Deck.lastcard = player1[2];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
+            if (x == 4 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable == 1) {
+                Deck.lastcard = player1[3];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("PİŞTİİİİi");
+                PointsSystem.pointsp1 += 10;
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 4 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable > 1) {
+                Deck.lastcard = player1[3];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                System.out.println("YOU GOT THE CARDS");
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if ((x == 4 && player1[x - 1].charAt(0) == joker[0].charAt(0))) {
+                System.out.println("Joker got the points");
+                Deck.lastcard = player1[3];
+                PointsSystem.Calculatepointsp1(Deck.lastcard);
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
+                decksonthetable = 0;
+                complay.CompChoose();
+            } else if (x == 4) {
+                Deck.lastcard = player1[3];
+                System.out.println("Table on the board" + Deck.lastcard);
+                player1[3] = null;
+                PointsSystem.PrintP1hand();
+                decksonthetable++;
+                complay.CompChoose();
             }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else if((x == 3 && player1[x - 1].charAt(0) == joker[0].charAt(0))){
-            System.out.println("Joker got the points");
-            Deck.lastcard = player1[2];
-            player1[0] = player1[1];
-            player1[1] = player1[2];
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
+        } catch (NullPointerException e) {
+            if (x == 4 && player1[3] == null) {
+                System.out.println("Wrong Card");
+                ChooseCard();
+            } else if (x == 3 && player1[2] == null) {
+                System.out.println("Wrong Card");
+                ChooseCard();
+            } else if (x == 2 && player1[1] == null) {
+                System.out.println("Wrong Card");
+                ChooseCard();
             }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else  if (x == 3 && player1[x - 1].charAt(0) != Deck.lastcard.charAt(0)) {
-            Deck.lastcard = player1[2];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[2] = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("*********GAME OVER *********");
+        } catch (InputMismatchException e) {
+            ChooseCard();
+        } catch (Exception e) {
+            if (Deck.counter < 52) {
+                x = scanner.nextInt();
             }
-            decksonthetable++;
-            complay.CompChoose();
-        }
-        if (x == 4 && Deck.lastcard != null && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable ==1) {
-            Deck.lastcard = player1[3];
-            player1[3] = null;
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            for (int u = 0; u < player1.length - 1; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else  if (x == 4 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable >1) {
-            System.out.println("pişti yazdır");
-            Deck.lastcard = player1[3];
-            System.out.println("Table on the board" + "*****" +Deck.lastcard + "*****");
-            player1[3] = null;
-            for (int u = 0; u < player1.length - 1; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else if((x == 4 && player1[x - 1].charAt(0) == joker[0].charAt(0))){
-            System.out.println("Joker got the points");
-            Deck.lastcard = player1[3];
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable =0;
-            complay.CompChoose();
-        }
-        else if (x == 4 && player1[x - 1].charAt(0) != Deck.lastcard.charAt(0)) {
-            Deck.lastcard = player1[3];
-            System.out.println("Table on the board" + Deck.lastcard);
-            player1[3] = null;
-            for (int u = 0; u < player1.length; u++) {
-                if (player1[u] != null) {
-                    System.out.println("player 1 cards " + u + ".= " +player1[u]);
-                }
-            }
-            decksonthetable++;
-            complay.CompChoose();
         }
     }
 }

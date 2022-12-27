@@ -1,8 +1,10 @@
 
+import javax.sound.midi.Soundbank;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Random;
 
 public class Computer {
-    String [] player2 = Deck.player2;
+    String[] player2 = Deck.player2;
     public static Deck deaalcard1 = new Deck();
     public static String[] joker = {"Joker"};
     Random rd = new Random();
@@ -14,130 +16,155 @@ public class Computer {
     // elindeiki tane joker varsa o durumu kontrol et bir daha joker atabiliyor
     public void CompChoose() {
         if ((player2[0].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1) {
-            Deck.lastcard = player2[1];
-            System.out.print("computer choosedddddd" + player2[0]);
-            System.out.println("************************");
-            System.out.println("Computer got the point");
-            System.out.println("***********************");
+            Deck.lastcard = player2[0];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            PointsSystem.pointscmp += 10;
+            System.out.println("COMPUTER CHOOSED" + player2[0]);
+            System.out.println("COMPUTER GOT THE POİNT");
             player2[0] = player2[1];
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
-            if (player2[0] == null){
-                choosecard.ChooseCard();
+            if (player2[0] == null) {
+                deaalcard1.DealCards();
             }
-        }  else if (player2[1] != null &&(player2[1].charAt(0) == Deck.lastcard.charAt(0))&& tableon.decksonthetable == 1){
+            choosecard.ChooseCard();
+        } else if (player2[1] != null && (player2[1].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1) {
             Deck.lastcard = player2[1];
-            System.out.println("computer choosedddddd" + player2[1]);
-            System.out.println("computer got the point");
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("COMPUTER CHOOSED" + player2[1]);
+            System.out.println("COMPUTER GOT THE POİNT");
+            PointsSystem.pointscmp += 10;
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if (player2[2] != null &&(player2[2].charAt(0) == Deck.lastcard.charAt(0))&& tableon.decksonthetable == 1){
-            Deck.lastcard = player2[1];
-            System.out.println("computer choosedddddd" + player2[2]);
-            System.out.println("computer got the point");
+        } else if (player2[2] != null && (player2[2].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1) {
+            Deck.lastcard = player2[2];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("COMPUTER CHOOSED" + player2[2]);
+            System.out.println("COMPUTER GOT THE POİNT");
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.pointscmp += 10;
+            PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if( player2[3] != null &&(player2[3].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1){
-            Deck.lastcard = player2[1];
-            System.out.println("computer choosedddddd" + player2[3]);
-            System.out.println("computer got the point");
+        } else if (player2[3] != null && (player2[3].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable == 1) {
+            Deck.lastcard = player2[3];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("COMPUTER CHOOSED" + player2[3]);
+            System.out.println("COMPUTER GOT THE POİNT");
+            PointsSystem.pointscmp += 10;
             player2[3] = null;
+            PointsSystem.pointscmp += 10;
+            PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
         } //burdan sonrası farklı
         else if ((player2[0].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1) {
-            Deck.lastcard = player2[1];
+            Deck.lastcard = player2[0];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[0]);
-            System.out.println("got the point but less");
+            System.out.println("COMPUTER GOT THE CARDS");
             player2[0] = player2[1];
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.pointscmp += 10;
+            PointsSystem.pointscmp += tableon.decksonthetable;
+            PointsSystem.Collectcardsscmp();
             tableon.decksonthetable = 0;
-            if (player2[0] == null){
-                System.out.println("*****************");
-                System.out.println("Cards are dealing");
-                System.out.println("*****************");
+            if (player2[0] == null) {
                 deaalcard1.DealCards();
             }
             choosecard.ChooseCard();
-        }  else if (player2[1] != null &&(player2[1].charAt(0) == Deck.lastcard.charAt(0) && tableon.decksonthetable > 1)){
+        } else if (player2[1] != null && (player2[1].charAt(0) == Deck.lastcard.charAt(0) && tableon.decksonthetable > 1)) {
             Deck.lastcard = player2[1];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[1]);
-            System.out.println("got the point but less");
+            System.out.println("COMPUTER GOT THE CARDS");
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if (player2[2] != null &&(player2[2].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1){
-            Deck.lastcard = player2[1];
+        } else if (player2[2] != null && (player2[2].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1) {
+            Deck.lastcard = player2[2];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[2]);
-            System.out.println("got the point but less");
+            System.out.println("COMPUTER GOT THE CARDS");
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if( player2[3] != null &&(player2[3].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1){
-            Deck.lastcard = player2[1];
+        } else if (player2[3] != null && (player2[3].charAt(0) == Deck.lastcard.charAt(0)) && tableon.decksonthetable > 1) {
+            Deck.lastcard = player2[3];
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
             System.out.println("computer choosedddddd" + player2[3]);
-            System.out.println("got the point but less");
+            System.out.println("COMPUTER GOT THE CARDS");
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if (player2[0].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+        } else if (player2[0].charAt(0) == joker[0].charAt(0)) {
             Deck.lastcard = player2[1];
-            System.out.println("jokerle alındı");
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("Computer COLLECTED WİTH JOKER");
             player2[0] = player2[1];
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
-            tableon.decksonthetable = 0;
-            if (player2[0] == null){
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
+            if (player2[0] == null) {
                 deaalcard1.DealCards();
             }
+            tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if (player2[1] != null && player2[1].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+        } else if (player2[1] != null && player2[1].charAt(0) == joker[0].charAt(0)) {
             Deck.lastcard = player2[1];
-            System.out.println("jokerle alındı");
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("Computer COLLECTED WİTH JOKER");
             player2[1] = player2[2];
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if (player2[2] != null && player2[2].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+        } else if (player2[2] != null && player2[2].charAt(0) == joker[0].charAt(0)) {
             Deck.lastcard = player2[1];
-            System.out.println("jokerle alındı");
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("Computer COLLECTED WİTH JOKER");
             player2[2] = player2[3];
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else if(player2[3] != null && player2[3].charAt(0) == joker[0].charAt(0) && tableon.decksonthetable >= 1){
+        } else if (player2[3] != null && player2[3].charAt(0) == joker[0].charAt(0)) {
             Deck.lastcard = player2[1];
-            System.out.println("jokerle alındı");
+            PointsSystem.Calculatepointscmpwithoutpoint(Deck.lastcard);
+            System.out.println("Computer COLLECTED WİTH JOKER");
             player2[3] = null;
+            PointsSystem.Collectcardsscmp();
+            PointsSystem.pointscmp += tableon.decksonthetable;
             tableon.decksonthetable = 0;
             choosecard.ChooseCard();
-        }
-        else  {
-            int a  = rd.nextInt(player2.length - 1);
+        } else {
+            int a = rd.nextInt(player2.length - 1);
             while (player2[a] == null) {
-                a  = rd.nextInt(player2.length - 1);
+                a = rd.nextInt(player2.length - 1);
             }
             System.out.println("computer choosed" + player2[a]);
             lastcardcomp = player2[a];
@@ -147,14 +174,14 @@ public class Computer {
                 player2[1] = player2[2];
                 player2[2] = player2[3];
                 player2[3] = null;
+                PointsSystem.Calculatepointscmp();
                 tableon.decksonthetable++;
-                if(player2[0] == null){
-                    System.out.println("*****************");
-                    System.out.println("Cards are dealing");
-                    System.out.println("*****************");
+                if (player2[0] == null) {
                     deaalcard1.DealCards();
                 }
-                choosecard.ChooseCard();
+                if (player2[0] != null || a != 0) {
+                    choosecard.ChooseCard();
+                }
             } else if ((a == 1)) {
                 Deck.lastcard = player2[1];
                 player2[1] = player2[2];
@@ -168,8 +195,7 @@ public class Computer {
                 player2[3] = null;
                 tableon.decksonthetable++;
                 choosecard.ChooseCard();
-            }
-            else if ((a == 3)) {
+            } else if ((a == 3)) {
                 Deck.lastcard = player2[3];
                 player2[3] = null;
                 tableon.decksonthetable++;
