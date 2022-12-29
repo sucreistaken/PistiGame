@@ -2,7 +2,7 @@ import javax.xml.transform.sax.SAXSource;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class player1play {
+public class Player1play {
     public static String[] player1 = Deck.player1;
     // Deck dealcard = new Deck();
     public static String[] joker = {"Joker"};
