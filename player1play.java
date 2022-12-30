@@ -73,7 +73,6 @@ public class Player1play {
                 Playerhands.player1Hands2();
                 PointsSystem.PrintP1hand();
                 PointsSystem.Collectcardssp1();
-                PointsSystem.pointsp1 += decksonthetable;
                 decksonthetable = 0;
                 complay.CompChoose();
             } else if (x == 2 && player1[x - 1].charAt(0) == Deck.lastcard.charAt(0) && decksonthetable > 1) {
@@ -83,6 +82,7 @@ public class Player1play {
                 Playerhands.player1Hands2();
                 PointsSystem.PrintP1hand();
                 PointsSystem.Collectcardssp1();
+                PointsSystem.pointsp1 += decksonthetable;
                 decksonthetable = 0;
                 complay.CompChoose();
             } else if ((x == 2 && player1[x - 1].charAt(0) == joker[0].charAt(0))) {

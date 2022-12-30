@@ -8,8 +8,8 @@ public class Computer {
     public static Deck deaalcard1 = new Deck();
     public static String[] joker = {"Joker"};
     Random rd = new Random();
-    public static player1play choosecard = new player1play();
-    public static player1play tableon = new player1play();
+    public static Player1play choosecard = new Player1play();
+    public static Player1play tableon = new Player1play();
     public static String lastcardcomp;
 
 
@@ -148,7 +148,7 @@ public class Computer {
             }
             System.out.println("computer choosed" + player2[a]);
             lastcardcomp = player2[a];
-            if ((a == 0)) { //masadaki kart değişecek ve başka kart var mı diye bakılacak bir metod daha ekliceksin o şekilde
+            if ((a == 0)) { 
                 Deck.lastcard = player2[0];
                 Playerhands.player2Hands();
                 PointsSystem.Calculatepointscmp();
@@ -178,6 +178,7 @@ public class Computer {
         }
     }
 }
+
 
 
 

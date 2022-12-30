@@ -29,7 +29,7 @@ public class PointsSystem {
                 break;
             }
         }
-        startgame.OyunBaslangic();
+         startgame.OyunBaslangic();
         Points newScore = new Points(userName, pointsp1);
         File file = new File("C:\\Users\\kadir\\IdeaProjects\\Pisti\\src\\highscore.txt");
         Scanner fileReader = new Scanner(file);
@@ -85,7 +85,7 @@ public class PointsSystem {
         if (a == "♦10") {
             PointsSystem.pointsp1 += 3;
         } else if (a == "♣2") {
-            PointsSystem.pointsp1 += 3;
+            PointsSystem.pointsp1 += 2;
         }
     }
 
@@ -98,7 +98,7 @@ public class PointsSystem {
         if (a == "♦10") {
             PointsSystem.pointsp1 += 3;
         } else if (a == "♣2") {
-            PointsSystem.pointsp1 += 3;
+            PointsSystem.pointsp1 += 2;
         }
     }
 
@@ -118,8 +118,8 @@ public class PointsSystem {
         } else {
             pointsp1 += 3;
         }
-        System.out.println("Player 1 Points:" + pointsp1);
-        System.out.println("Computer points" + pointscmp);
+        System.out.println("Player 1 points ="  + pointsp1);
+        System.out.println("Computer points =" + pointscmp);
     }
 
 
@@ -131,6 +131,8 @@ public class PointsSystem {
         // Diziyi sıralamak için bir döngü oluşturun
 
     }
+
+
 
 }
 

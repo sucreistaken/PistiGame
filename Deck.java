@@ -5,6 +5,7 @@ public class Deck {
     public static String[] player1 = new String[4];
     public static String[] player2 = new String[4];
     public static String[] board = new String[4];
+    public static Player1play choosecard = new Player1play();
     public static String lastcard;
 
     Deck() {
@@ -27,7 +28,7 @@ public class Deck {
             deck[ikinci] = temp;
         }
         for (int u = 0; u < deck.length; u++) {
-            System.out.println(deck[u]);
+            // System.out.println(deck[u]);
         }
     }
 
@@ -37,11 +38,6 @@ public class Deck {
         String tempdeck[] = new String[k];
         String tempdeck2[] = new String[52 - k];
         int temp = k;
-        System.out.println("*********************************");
-        System.out.println(k + "nıncı sıra");
-        System.out.println("**********************************");
-        String gecici;
-        String gecici2;
         int i = 0;
         int p = 0;
         int c = 0;
@@ -63,7 +59,7 @@ public class Deck {
             c++;
         }
         for (int z = 0; z < deck.length; z++) {
-            System.out.println(deck[z]);
+            //System.out.print(deck[z]);
         }
     }
 
@@ -82,6 +78,7 @@ public class Deck {
         System.out.println("masadaki kartlar" + board[j - 1]);
         counter += 4;
         lastcard = board[j - 1];
+        choosecard.ChooseCard();
     }
 
     public void DealCards() {
@@ -112,9 +109,9 @@ public class Deck {
             p1++;
         }
         p1 = 0;
-        for (int u = 0; u < player1.length; u++) {
+        /*for (int u = 0; u < player1.length; u++) {
             System.out.println("player 2 cards " + player2[u]);
-        }
+        } */
     }
 
 }
