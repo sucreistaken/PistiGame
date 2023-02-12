@@ -1,5 +1,6 @@
 # kadirayy
 piştiolsun
+Introduction
 Pişti is a card game played by 2 or 4 people. It is very common in Turkey and one of the
 easiest games to learn and play. Read this description carefully, it is written to answer all of
 your questions.
@@ -35,59 +36,3 @@ If there are cards left on the board once all the cards are played, the last pla
 cards from the board also gets the remaining ones.
 Basically, the game is to get all the cards on the board either by using a Jack or by using a
 card that has the same value as the top card on the board.
-A Sample Game
-The cards are shuffled and then cut. The table shows the board by placing the top card on the
-first line, and the remaining cards on the second line. We can never see the opponent cards.
-Turn My Hand Board Comment
-1 ♠10 ♣A ♥3 ♦3 ♣4
-♣3 ♣2 ♥A
-Since I don’t have a four,
-I play one of the 3s.
-♠10 ♣A ♦3 ♥3
-♣4 ♣3 ♣2 ♥A
-Now the opponent will
-play. Hint: Since there are
-four 3s in the deck, it is
-very likely that the
-opponent will be playing
-a three.
-♠10 ♣A ♦3 ♣10
-♥3 ♣4 ♣3 ♣2 ♥A
-Now that the player has
-played, and cannot take
-any cards, it is my turn
-again. I’ll be playing my
-10, and I will get all the
-cards. One of the cards is
-♣2 - so I’m happy.
-2 ♣A ♦3 ♠10
-♣10 ♥3 ♣4 ♣3 ♣2 ♥A
-Since I was able to play a
-10, I’ll get all the cards.
-The board will be empty.
-♣A ♦3 Now it is time for the
-opponent to play.
-♣A ♦3 ♦A It must be my lucky day.
-An ace is played, and
-now I can make a “pişti”
-3 ♦3 ♣A
-♦A
-Pişti! The board is once
-again empty.
-♦3 Now it is time for the
-opponent to play.
-♦3 ♠7 Nothing to do, I will play
-my only remaining card.
-4 ♦3
-♠7
-Card played, it is the
-opponent’s turn.
-♠8 Now both players are out
-♦3 ♠7 of cards, the dealer will
-give us new cards.
-5 ♠5 ♣Q ♦J ♥3 ♠8
-♦3 ♠7
-I can play the J and take
-all the cards…
-… this goes on until all
-cards are played
